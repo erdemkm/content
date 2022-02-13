@@ -157,8 +157,7 @@
 
 .run-unittests-and-lint:
   tags:
-    - gce
-    - europe-west4
+    - gce-europe-west4
   needs: []
   stage: unittests-and-validations
   artifacts:
