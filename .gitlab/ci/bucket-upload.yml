@@ -69,8 +69,7 @@ prepare-testing-bucket-mpv2-upload-flow:
 
 .install_packs_in_server:
   tags:
-    - gke
-    - europe-west4
+    - europe-west4-gke
   needs: ["create-instances-upload-flow"]
   stage: run-instances
   artifacts:
@@ -133,8 +132,7 @@ install-packs-in-server-master:
 
 upload-packs-to-marketplace:
   tags:
-    - gke
-    - europe-west4
+    - europe-west4-gke
   needs: ["run-validations-upload-flow", "install-packs-in-server6_2", "install-packs-in-server6_1", "install-packs-in-server-master", "run-unittests-and-lint-upload-flow"]
   stage: upload-to-marketplace
   artifacts:
@@ -209,8 +207,7 @@ upload-packs-to-marketplace:
 
 upload-packs-to-marketplace-v2:
   tags:
-    - gke
-    - europe-west4
+    - europe-west4-gke
   needs: ["run-validations-upload-flow", "run-unittests-and-lint-upload-flow", "prepare-testing-bucket-mpv2-upload-flow"]
   stage: upload-to-marketplace
   artifacts:
@@ -268,8 +265,7 @@ upload-packs-to-marketplace-v2:
 
 force-pack-upload:
   tags:
-    - gke
-    - europe-west4
+    - europe-west4-gke
   stage: upload-to-marketplace
   needs: ["create-instances-upload-flow"]
   rules:
@@ -297,8 +293,7 @@ force-pack-upload:
 
 fan-in-bucket-upload:
   tags:
-    - gke
-    - europe-west4
+    - europe-west4-gke
   stage: fan-in
   extends:
     - .bucket-upload-rule-always

@@ -4,8 +4,7 @@
 
 test_instances:
   tags:
-    - gke
-    - europe-west4
+    - europe-west4-gke
   extends:
     - .default-job-settings
     - .instance-test-rule
